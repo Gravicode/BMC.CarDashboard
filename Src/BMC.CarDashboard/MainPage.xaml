@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="BMC.CarDashboard.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BMC.CarDashboard"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="800" Height="480"
+    mc:Ignorable="d" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="480"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5 15 5 5" Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0">
+            <TextBlock Name="TxtJam" Foreground="White" Text="10:11 AM" HorizontalTextAlignment="Center" FontSize="80" FontFamily="Calibri" FontWeight="Bold"></TextBlock>
+            <TextBlock Name="TxtHari" Foreground="White" Text="Wednesday" HorizontalAlignment="Center" FontSize="50" FontFamily="Calibri" Margin="0 -25 0 0"></TextBlock>
+            <TextBlock Name="TxtTanggal" Foreground="White" Text="December, 12 April 2019" HorizontalAlignment="Center" FontSize="25" FontFamily="Calibri" Margin="0 -10 0 0"></TextBlock>
+            <FlipView x:Name="flipView1" Margin="0 20 0 0" Width="300" Height="250" 
+          BorderBrush="Silver" BorderThickness="1">
+                <FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Width="300" Height="250" Stretch="UniformToFill"
+                       Source="{Binding Image}"/>
+                            <Border Background="#A5000000" Height="20" VerticalAlignment="Bottom">
+                                <TextBlock Text="{Binding Name}" 
+                               FontFamily="Segoe UI" FontSize="10" 
+                               Foreground="#CCFFFFFF" Padding="5,0"/>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
+        </StackPanel>
+        <ScrollViewer Margin="5 25 5 25" Grid.Column="1">
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Media" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Media Player"></Button>
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Youtube" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Youtube"></Button>
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Radio" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Radio"></Button>
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Maps" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Maps"></Button>
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Home" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Home Controls"></Button>
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Car" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Car Stats"></Button>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

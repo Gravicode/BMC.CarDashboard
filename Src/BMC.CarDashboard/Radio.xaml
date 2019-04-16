@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="BMC.CarDashboard.Radio"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BMC.CarDashboard"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="800" Height="480"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="5 5 5 5" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="70" />
+            
+            <RowDefinition Height="Auto" MinHeight="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Name="BtnExit" Margin="0 0 0 0" Content="X" Width="60" HorizontalAlignment="Right" Height="40" FontSize="20" BorderBrush="Transparent" BorderThickness="0" Background="DarkOrange" Foreground="Black"></Button>
+        <TextBlock Grid.Row="1" Text="Radio Player" Foreground="White" FontSize="50" Margin="0 0 0 0" FontFamily="Calibri"></TextBlock>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Margin="0 0 0 10">
+            <TextBlock Foreground="Orange" Text="Now Playing" FontSize="40" FontFamily="Calibri" />
+            <TextBlock FontSize="20" Text="-" x:Name="SongBox" />
+            <TextBlock FontSize="20" Text="-" x:Name="ArtistBox" />
+            <TextBlock FontSize="20" Text="-" x:Name="AudioFormatBox" />
+            <TextBlock FontSize="20" Text="-" x:Name="BitRateBox" />
+            <TextBlock FontSize="20" Text="-" x:Name="SampleRateBox" />
+        </StackPanel>
+
+        <Grid Grid.Row="3" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="stationComboBox" FontSize="30" Height="60" DisplayMemberPath="Name" Width="450" Grid.Column="0"/>
+
+            <Button x:Name="playButton" FontSize="30" Width="150" Height="60" Content="Play" Click="playButton_Click" Grid.Column="1" VerticalAlignment="Top"/>
+            <Button x:Name="stopButton" FontSize="30" Width="150" Height="60" Content="Stop" Click="stopButton_Click" IsEnabled="False" Grid.Column="2" VerticalAlignment="Top"/>
+        </Grid>
+
+        <MediaElement x:Name="MediaPlayer" Visibility="Collapsed" />
+    </Grid>
+</Page>
