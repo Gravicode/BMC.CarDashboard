@@ -128,49 +128,7 @@ namespace BMC.CarDashboard
             }
         }
     }
-    public class VideoItem
-    {
-        public string VideoID { get; set; }
-        public string Title { get; set; }
-        public string Desc { get; set; }
-        private ImageSource mainImage;
-        public ImageSource Image
-        {
-            get { return mainImage; }
-            set
-            {
-                if (mainImage != value)
-                {
-                    mainImage = value;
-
-                }
-            }
-        }
-    }
-    public static class MediaPlayerHelper
-    {
-        public static void CleanUpMediaPlayerSource(Windows.Media.Playback.MediaPlayer mp)
-        {
-            if (mp?.Source != null)
-            {
-                var source = mp.Source as Windows.Media.Core.MediaSource;
-                source?.Dispose();
-
-                var item = mp.Source as Windows.Media.Playback.MediaPlaybackItem;
-                item?.Source?.Dispose();
-
-                mp.Source = null;
-            }
-        }
-    }
-    public class MediaItem
-    {
-        public MediaPlaybackItem MediaPlaybackItem { get; private set; }
-        public Uri Uri { set; get; }
-        public MediaItem(string Url)
-        {
-            Uri = new Uri(Url);
-            MediaPlaybackItem = new MediaPlaybackItem(MediaSource.CreateFromUri(Uri));
-        }
-    }
+   
+   
+   
 }

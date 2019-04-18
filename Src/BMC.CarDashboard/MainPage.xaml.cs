@@ -39,7 +39,7 @@ namespace BMC.CarDashboard
             Setup();
         }
 
-       
+
         async void Setup()
         {
             ObservableCollection<ImageItem> datas = new ObservableCollection<ImageItem>();
@@ -78,7 +78,7 @@ namespace BMC.CarDashboard
                 }
                 //if (counter > 3) break;
                 // do something with the music files
-                
+
             }
 
             flipView1.ItemsSource = datas;
@@ -110,9 +110,10 @@ namespace BMC.CarDashboard
                 }
             });
         }
-            private void Menu_Click(object sender, RoutedEventArgs e)
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
-            switch((sender as Button).Tag)
+            if(this.timer !=null )this.timer.Stop();
+            switch ((sender as Button).Tag)
             {
                 case "Youtube":
                     this.Frame.Navigate(typeof(YoutubePage));
@@ -122,6 +123,15 @@ namespace BMC.CarDashboard
                     break;
                 case "Home":
                     this.Frame.Navigate(typeof(HomeAuto));
+                    break;
+                case "Media":
+                    this.Frame.Navigate(typeof(PlayerPage));
+                    break;
+                case "Maps":
+                    this.Frame.Navigate(typeof(Maps));
+                    break;
+                case "Quran":
+                    this.Frame.Navigate(typeof(QuranPage));
                     break;
             }
         }

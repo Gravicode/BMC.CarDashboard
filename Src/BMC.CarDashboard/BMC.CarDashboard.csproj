@@ -29,6 +29,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -41,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -119,14 +121,30 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CCTVPage.xaml.cs">
+      <DependentUpon>CCTVPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\MediaPlayerHelper.cs" />
     <Compile Include="HomeAuto.xaml.cs">
       <DependentUpon>HomeAuto.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Maps.xaml.cs">
+      <DependentUpon>Maps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MediaItem.cs" />
+    <Compile Include="Models\QuranClass.cs" />
     <Compile Include="Models\StationItem.cs" />
+    <Compile Include="Models\VideoItem.cs" />
+    <Compile Include="PlayerPage.xaml.cs">
+      <DependentUpon>PlayerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuranPage.xaml.cs">
+      <DependentUpon>QuranPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Radio.xaml.cs">
       <DependentUpon>Radio.xaml</DependentUpon>
     </Compile>
@@ -138,9 +156,242 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Quran\juz.json" />
+    <Content Include="Assets\Quran\reciters.json" />
+    <Content Include="Assets\Quran\surah.json" />
+    <Content Include="Assets\Quran\surah\surah_1.json" />
+    <Content Include="Assets\Quran\surah\surah_10.json" />
+    <Content Include="Assets\Quran\surah\surah_100.json" />
+    <Content Include="Assets\Quran\surah\surah_101.json" />
+    <Content Include="Assets\Quran\surah\surah_102.json" />
+    <Content Include="Assets\Quran\surah\surah_103.json" />
+    <Content Include="Assets\Quran\surah\surah_104.json" />
+    <Content Include="Assets\Quran\surah\surah_105.json" />
+    <Content Include="Assets\Quran\surah\surah_106.json" />
+    <Content Include="Assets\Quran\surah\surah_107.json" />
+    <Content Include="Assets\Quran\surah\surah_108.json" />
+    <Content Include="Assets\Quran\surah\surah_109.json" />
+    <Content Include="Assets\Quran\surah\surah_11.json" />
+    <Content Include="Assets\Quran\surah\surah_110.json" />
+    <Content Include="Assets\Quran\surah\surah_111.json" />
+    <Content Include="Assets\Quran\surah\surah_112.json" />
+    <Content Include="Assets\Quran\surah\surah_113.json" />
+    <Content Include="Assets\Quran\surah\surah_114.json" />
+    <Content Include="Assets\Quran\surah\surah_12.json" />
+    <Content Include="Assets\Quran\surah\surah_13.json" />
+    <Content Include="Assets\Quran\surah\surah_14.json" />
+    <Content Include="Assets\Quran\surah\surah_15.json" />
+    <Content Include="Assets\Quran\surah\surah_16.json" />
+    <Content Include="Assets\Quran\surah\surah_17.json" />
+    <Content Include="Assets\Quran\surah\surah_18.json" />
+    <Content Include="Assets\Quran\surah\surah_19.json" />
+    <Content Include="Assets\Quran\surah\surah_2.json" />
+    <Content Include="Assets\Quran\surah\surah_20.json" />
+    <Content Include="Assets\Quran\surah\surah_21.json" />
+    <Content Include="Assets\Quran\surah\surah_22.json" />
+    <Content Include="Assets\Quran\surah\surah_23.json" />
+    <Content Include="Assets\Quran\surah\surah_24.json" />
+    <Content Include="Assets\Quran\surah\surah_25.json" />
+    <Content Include="Assets\Quran\surah\surah_26.json" />
+    <Content Include="Assets\Quran\surah\surah_27.json" />
+    <Content Include="Assets\Quran\surah\surah_28.json" />
+    <Content Include="Assets\Quran\surah\surah_29.json" />
+    <Content Include="Assets\Quran\surah\surah_3.json" />
+    <Content Include="Assets\Quran\surah\surah_30.json" />
+    <Content Include="Assets\Quran\surah\surah_31.json" />
+    <Content Include="Assets\Quran\surah\surah_32.json" />
+    <Content Include="Assets\Quran\surah\surah_33.json" />
+    <Content Include="Assets\Quran\surah\surah_34.json" />
+    <Content Include="Assets\Quran\surah\surah_35.json" />
+    <Content Include="Assets\Quran\surah\surah_36.json" />
+    <Content Include="Assets\Quran\surah\surah_37.json" />
+    <Content Include="Assets\Quran\surah\surah_38.json" />
+    <Content Include="Assets\Quran\surah\surah_39.json" />
+    <Content Include="Assets\Quran\surah\surah_4.json" />
+    <Content Include="Assets\Quran\surah\surah_40.json" />
+    <Content Include="Assets\Quran\surah\surah_41.json" />
+    <Content Include="Assets\Quran\surah\surah_42.json" />
+    <Content Include="Assets\Quran\surah\surah_43.json" />
+    <Content Include="Assets\Quran\surah\surah_44.json" />
+    <Content Include="Assets\Quran\surah\surah_45.json" />
+    <Content Include="Assets\Quran\surah\surah_46.json" />
+    <Content Include="Assets\Quran\surah\surah_47.json" />
+    <Content Include="Assets\Quran\surah\surah_48.json" />
+    <Content Include="Assets\Quran\surah\surah_49.json" />
+    <Content Include="Assets\Quran\surah\surah_5.json" />
+    <Content Include="Assets\Quran\surah\surah_50.json" />
+    <Content Include="Assets\Quran\surah\surah_51.json" />
+    <Content Include="Assets\Quran\surah\surah_52.json" />
+    <Content Include="Assets\Quran\surah\surah_53.json" />
+    <Content Include="Assets\Quran\surah\surah_54.json" />
+    <Content Include="Assets\Quran\surah\surah_55.json" />
+    <Content Include="Assets\Quran\surah\surah_56.json" />
+    <Content Include="Assets\Quran\surah\surah_57.json" />
+    <Content Include="Assets\Quran\surah\surah_58.json" />
+    <Content Include="Assets\Quran\surah\surah_59.json" />
+    <Content Include="Assets\Quran\surah\surah_6.json" />
+    <Content Include="Assets\Quran\surah\surah_60.json" />
+    <Content Include="Assets\Quran\surah\surah_61.json" />
+    <Content Include="Assets\Quran\surah\surah_62.json" />
+    <Content Include="Assets\Quran\surah\surah_63.json" />
+    <Content Include="Assets\Quran\surah\surah_64.json" />
+    <Content Include="Assets\Quran\surah\surah_65.json" />
+    <Content Include="Assets\Quran\surah\surah_66.json" />
+    <Content Include="Assets\Quran\surah\surah_67.json" />
+    <Content Include="Assets\Quran\surah\surah_68.json" />
+    <Content Include="Assets\Quran\surah\surah_69.json" />
+    <Content Include="Assets\Quran\surah\surah_7.json" />
+    <Content Include="Assets\Quran\surah\surah_70.json" />
+    <Content Include="Assets\Quran\surah\surah_71.json" />
+    <Content Include="Assets\Quran\surah\surah_72.json" />
+    <Content Include="Assets\Quran\surah\surah_73.json" />
+    <Content Include="Assets\Quran\surah\surah_74.json" />
+    <Content Include="Assets\Quran\surah\surah_75.json" />
+    <Content Include="Assets\Quran\surah\surah_76.json" />
+    <Content Include="Assets\Quran\surah\surah_77.json" />
+    <Content Include="Assets\Quran\surah\surah_78.json" />
+    <Content Include="Assets\Quran\surah\surah_79.json" />
+    <Content Include="Assets\Quran\surah\surah_8.json" />
+    <Content Include="Assets\Quran\surah\surah_80.json" />
+    <Content Include="Assets\Quran\surah\surah_81.json" />
+    <Content Include="Assets\Quran\surah\surah_82.json" />
+    <Content Include="Assets\Quran\surah\surah_83.json" />
+    <Content Include="Assets\Quran\surah\surah_84.json" />
+    <Content Include="Assets\Quran\surah\surah_85.json" />
+    <Content Include="Assets\Quran\surah\surah_86.json" />
+    <Content Include="Assets\Quran\surah\surah_87.json" />
+    <Content Include="Assets\Quran\surah\surah_88.json" />
+    <Content Include="Assets\Quran\surah\surah_89.json" />
+    <Content Include="Assets\Quran\surah\surah_9.json" />
+    <Content Include="Assets\Quran\surah\surah_90.json" />
+    <Content Include="Assets\Quran\surah\surah_91.json" />
+    <Content Include="Assets\Quran\surah\surah_92.json" />
+    <Content Include="Assets\Quran\surah\surah_93.json" />
+    <Content Include="Assets\Quran\surah\surah_94.json" />
+    <Content Include="Assets\Quran\surah\surah_95.json" />
+    <Content Include="Assets\Quran\surah\surah_96.json" />
+    <Content Include="Assets\Quran\surah\surah_97.json" />
+    <Content Include="Assets\Quran\surah\surah_98.json" />
+    <Content Include="Assets\Quran\surah\surah_99.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_1.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_10.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_100.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_101.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_102.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_103.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_104.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_105.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_106.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_107.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_108.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_109.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_11.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_110.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_111.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_112.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_113.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_114.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_12.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_13.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_14.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_15.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_16.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_17.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_18.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_19.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_2.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_20.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_21.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_22.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_23.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_24.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_25.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_26.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_27.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_28.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_29.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_3.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_30.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_31.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_32.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_33.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_34.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_35.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_36.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_37.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_38.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_39.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_4.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_40.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_41.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_42.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_43.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_44.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_45.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_46.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_47.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_48.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_49.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_5.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_50.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_51.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_52.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_53.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_54.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_55.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_56.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_57.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_58.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_59.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_6.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_60.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_61.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_62.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_63.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_64.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_65.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_66.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_67.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_68.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_69.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_7.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_70.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_71.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_72.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_73.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_74.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_75.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_76.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_77.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_78.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_79.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_8.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_80.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_81.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_82.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_83.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_84.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_85.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_86.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_87.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_88.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_89.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_9.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_90.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_91.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_92.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_93.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_94.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_95.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_96.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_97.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_98.json" />
+    <Content Include="Assets\Quran\translation\en\en_translation_99.json" />
     <None Include="BMC.CarDashboard_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\music.png" />
+    <Content Include="Assets\video.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -155,6 +406,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CCTVPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomeAuto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +417,18 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Maps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuranPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Radio.xaml">
       <SubType>Designer</SubType>

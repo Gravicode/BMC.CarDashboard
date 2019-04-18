@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="BMC.CarDashboard.QuranPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BMC.CarDashboard"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="800" Height="480"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="5 5 5 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Name="BtnExit" Margin="0 0 0 0" Content="X" Width="60" HorizontalAlignment="Right" Height="40" FontSize="20" BorderBrush="Transparent" BorderThickness="0" Background="DarkOrange" Foreground="Black"></Button>
+        <TextBlock Grid.Row="1" Text="Al-Quran" Foreground="White" FontSize="30" Margin="0 0 0 0" FontFamily="Calibri"></TextBlock>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Reciter :" Margin="0 0 10 0" FontSize="25" HorizontalAlignment="Right"></TextBlock>
+            <ComboBox Grid.Row="0" Grid.Column="1" FontWeight="Bold" Name="CmbReciter" Text="" FontSize="20" Width="500" BorderBrush="White" ></ComboBox>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Juz :" Margin="0 0 10 0" FontSize="25" HorizontalAlignment="Right"></TextBlock>
+            <ComboBox Grid.Row="2" Grid.Column="1" Name="CmbJuz" Text="" FontSize="20" FontWeight="Bold" Width="500" BorderBrush="White" ></ComboBox>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Surah :" Margin="0 0 10 0" FontSize="25" HorizontalAlignment="Right"></TextBlock>
+            <ComboBox Grid.Row="4" Grid.Column="1" Name="CmbSurah" Text="" FontSize="20" FontWeight="Bold" Width="500" BorderBrush="White" ></ComboBox>
+            
+        </Grid>
+        <ProgressBar Name="Progress1" Visibility="Collapsed" IsIndeterminate="True" Grid.Row="3" IsEnabled="True" Height="10" Width="700"  Foreground="Green"/>
+        <ListView Grid.Row="4" Margin="10 10 10 10" Name="List1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="740" Margin="0 5 0 5" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock HorizontalAlignment="Right" Margin="5 5 5 0" FontSize="16" FlowDirection="RightToLeft" TextWrapping="Wrap" Grid.Column="0" Grid.Row="0" Text="{Binding Ayah}"/>
+                        <TextBlock HorizontalAlignment="Right" Margin="5 5 5 0" FontSize="16" TextWrapping="Wrap" Grid.Column="0" Grid.Row="1" Text="{Binding Translate}"/>
+                        <TextBlock HorizontalAlignment="Right" Margin="5 0 5 0" FontSize="16" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Text="{Binding No}"/>
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <MediaPlayerElement Grid.Row="5" x:Name="Player1" AutoPlay="False" Margin="5" Height="auto" HorizontalAlignment="Stretch" AreTransportControlsEnabled="True"/>
+
+
+
+    </Grid>
+</Page>
