@@ -38,7 +38,7 @@ namespace BMC.CarDashboard
         void Setup()
         {
             BtnExit.Click += (a, b) => { if (this.Frame.CanGoBack) this.Frame.GoBack(); else this.Frame.Navigate(typeof(MainPage)); };
-            //iot = new MqttService();
+            iot = new MqttService();
             List1.ItemsSource = DeviceData.GetAllDevices();
             BtnFind.Click += (a, b) => {
                 Progress1.Visibility = Visibility.Visible;
@@ -64,13 +64,13 @@ namespace BMC.CarDashboard
             {
                 //string DeviceID = $"Device{btn.CommandArgument}IP";
                 string URL = $"http://{IP}/cm?cmnd=Power%20On";
-                //await iot.InvokeMethod("BMCSecurityBot", "OpenURL", new string[] { URL });
+                await iot.InvokeMethod("BMCSecurityBot", "OpenURL", new string[] { URL });
             }
             else
             {
                 //string DeviceID = $"Device{btn.CommandArgument}IP";
                 string URL = $"http://{IP}/cm?cmnd=Power%20Off";
-                //await iot.InvokeMethod("BMCSecurityBot", "OpenURL", new string[] { URL });
+                await iot.InvokeMethod("BMCSecurityBot", "OpenURL", new string[] { URL });
             }
         }
     }
@@ -94,8 +94,9 @@ namespace BMC.CarDashboard
                  //new DeviceData (){ ID=7, Name="Prayer Room", IP="192.168.1.35" },
                 new DeviceData (){ ID=8, Name="Guest Room Lamp", IP="192.168.1.26" },
                 new DeviceData (){ ID=7, Name="Front Room Fan", IP="192.168.1.36" },
-                new DeviceData (){ ID=8, Name="Prayer Room Lamp", IP="192.168.1.29" }
-
+                new DeviceData (){ ID=8, Name="Prayer Room Lamp", IP="192.168.1.29" },
+                new DeviceData (){ ID=10, Name="Door Lock 1", IP="192.168.1.40" },
+                new DeviceData (){ ID=11, Name="Door Lock 2", IP="192.168.1.42" },
             };
         }
         public static List<DeviceData> FilterDevice(string Keyword)
@@ -182,7 +183,8 @@ namespace BMC.CarDashboard
     public class APPCONTANTS
     {
         //cognitive service
-        public const string MQTT_SERVER = "23.98.70.88";//"cloud.makestro.com"; //"cloud.makestro.com";
+        public const string MQTT_SERVER = "13.76.156.239";//"cloud.makestro.com"; //"cloud.makestro.com";
+
         public const string MQTT_USER = "loradev_mqtt";
         public const string MQTT_PASS = "test123";
     }
