@@ -21,6 +21,7 @@ using Windows.Storage.Streams;
 using YoutubeSearch;
 
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace BMC.CarDashboard
@@ -110,7 +111,7 @@ namespace BMC.CarDashboard
                 }
             });
         }
-        private void Menu_Click(object sender, RoutedEventArgs e)
+        private async void Menu_Click(object sender, RoutedEventArgs e)
         {
             if(this.timer !=null )this.timer.Stop();
             switch ((sender as Button).Tag)
@@ -132,6 +133,16 @@ namespace BMC.CarDashboard
                     break;
                 case "Quran":
                     this.Frame.Navigate(typeof(QuranPage));
+                    break;
+                case "Twitter":
+                    this.Frame.Navigate(typeof(TwitterPage));
+                    break;
+                case "Car":
+                    // Create the message dialog and set its content
+                    var messageDialog = new MessageDialog("You need to put OBD Reader device.");
+
+                    // Show the message dialog
+                    await messageDialog.ShowAsync();
                     break;
             }
         }

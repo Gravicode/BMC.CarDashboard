@@ -31,6 +31,8 @@ namespace BMC.CarDashboard
     {
         ObservableCollection<Reciter> Reciters;
         ObservableCollection<SurahIndex> SurahDatas;
+        ObservableCollection<TempSurah> SurahList;
+
         ObservableCollection<Juz> JuzDatas;
         ObservableCollection<TempAyah> AyahDatas;
         public QuranPage()
@@ -169,19 +171,27 @@ namespace BMC.CarDashboard
            
             var juz = CmbJuz.SelectedIndex > 0 ? JuzDatas[CmbJuz.SelectedIndex - 1] : JuzDatas[0];
             int counter = 0;
-            var datas = new List<TempSurah>();
+            if (SurahList == null)
+            {
+                SurahList = new ObservableCollection<TempSurah>();
+            }
+            else
+            {
+                SurahList.Clear();
+
+            }
             SurahDatas.OrderBy(x => x.index).ToList().ForEach(item =>
             {
                 counter++;
                 if (CmbJuz.SelectedIndex == 0 || (counter >= int.Parse(juz.start.index) && counter <= int.Parse(juz.end.index)))
                 {
-                    datas.Add(new TempSurah() { Title = $"{item.index} - {item.title} ({item.place})", Data = item });
+                    SurahList.Add(new TempSurah() { Title = $"{item.index} - {item.title} ({item.place})", Data = item });
                   
                 }
             });
             CmbSurah.DisplayMemberPath = "Title";
             CmbSurah.SelectedValuePath = "Data";
-            CmbSurah.ItemsSource = datas;
+            CmbSurah.ItemsSource = SurahList;
             CmbSurah.SelectedIndex = 0;
         }
     }

@@ -180,12 +180,5 @@ namespace BMC.CarDashboard
         public string ActionName { get; set; }
         public string[] Params { get; set; }
     }
-    public class APPCONTANTS
-    {
-        //cognitive service
-        public const string MQTT_SERVER = "13.76.156.239";//"cloud.makestro.com"; //"cloud.makestro.com";
-
-        public const string MQTT_USER = "loradev_mqtt";
-        public const string MQTT_PASS = "test123";
-    }
+   
 }
