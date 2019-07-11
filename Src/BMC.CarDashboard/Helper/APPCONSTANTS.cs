@@ -9,7 +9,7 @@ namespace BMC.CarDashboard
     public class APPCONTANTS
     {
         //cognitive service
-        public const string MQTT_SERVER = "13.76.156.239";//"23.98.70.88";//"cloud.makestro.com"; //"cloud.makestro.com";
+        public const string MQTT_SERVER = "110.35.82.86";//"23.98.70.88";//"cloud.makestro.com"; //"cloud.makestro.com";
         public const string MQTT_USER = "loradev_mqtt";
         public const string MQTT_PASS = "test123";
         public const string BING_API_KEY = "7cbea11a8b5344f08b2b5db408f91ed4";
