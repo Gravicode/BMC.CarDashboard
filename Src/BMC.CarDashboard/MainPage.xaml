@@ -50,6 +50,8 @@
                 <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
                 <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Home" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Home Controls"></Button>
                 <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
+                <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Draw" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Drawing"></Button>
+                <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
                 <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Car" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Car Stats"></Button>
                 <Rectangle VerticalAlignment="Stretch" Width="1" Margin="2" Stroke="Black" />
                 <Button Height="80" Width="380" Foreground="White" Background="DarkSlateBlue" Tag="Quran" Click="Menu_Click" FontFamily="Calibri" FontSize="40" Content="Al-Quran"></Button>

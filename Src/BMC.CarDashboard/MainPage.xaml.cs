@@ -125,6 +125,9 @@ namespace BMC.CarDashboard
                 case "Home":
                     this.Frame.Navigate(typeof(HomeAuto));
                     break;
+                case "Draw":
+                    this.Frame.Navigate(typeof(DrawPage));
+                    break;
                 case "Media":
                     this.Frame.Navigate(typeof(PlayerPage));
                     break;

@@ -124,8 +124,12 @@
     <Compile Include="CCTVPage.xaml.cs">
       <DependentUpon>CCTVPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DrawPage.xaml.cs">
+      <DependentUpon>DrawPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helper\APPCONSTANTS.cs" />
     <Compile Include="Helper\MediaPlayerHelper.cs" />
+    <Compile Include="Helper\MnistHelper.cs" />
     <Compile Include="Helper\SentimentService.cs" />
     <Compile Include="Helper\SpeechHelper.cs" />
     <Compile Include="Helper\TwitterService.cs" />
@@ -138,6 +142,7 @@
     <Compile Include="Maps.xaml.cs">
       <DependentUpon>Maps.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mnist.cs" />
     <Compile Include="Models\MediaItem.cs" />
     <Compile Include="Models\QuranClass.cs" />
     <Compile Include="Models\StationItem.cs" />
@@ -394,6 +399,9 @@
     <Content Include="Assets\Quran\translation\en\en_translation_97.json" />
     <Content Include="Assets\Quran\translation\en\en_translation_98.json" />
     <Content Include="Assets\Quran\translation\en\en_translation_99.json" />
+    <Content Include="Assets\mnist.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="BMC.CarDashboard_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -414,6 +422,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="CCTVPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DrawPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
