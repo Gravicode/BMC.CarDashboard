@@ -53,7 +53,7 @@
                 </ListView>
             </my:TabViewItem>
             <my:TabViewItem Header="Another Tab">
-                <TextBlock Padding="16">Nothing here..</TextBlock>
+                <TextBlock Padding="16">There is nothing here..</TextBlock>
             </my:TabViewItem>
         </my:TabView>
        
